@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const { engine } = require ('express-handlebars');
 const app = express();
 const port = 3000;
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('combined'));
 //app.engine('handlebars', handlebars());
 app.engine('hbs', engine({
@@ -22,6 +22,9 @@ app.get('/news', (req, res) => {
   res.render('news');
 });
 app.listen(3000);
+{
+  "ext"; "js json scss"
+}
 
 //app.listen(port, () => {
   //console.log(`Example app listening on port ${port}`)
