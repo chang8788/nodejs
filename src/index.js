@@ -6,7 +6,7 @@ const { engine } = require ('express-handlebars');
 const app = express();
 const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 //app.engine('handlebars', handlebars());
 app.engine('hbs', engine({
   extname: '.hbs'
@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
 });
 app.get('/news', (req, res) => {
   res.render('news');
+});
+app.get('/search', (req, res) => {
+  console.log(req.query.q);
+  res.render('search');
 });
 app.listen(3000);
 {
