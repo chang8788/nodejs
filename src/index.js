@@ -8,6 +8,10 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(morgan('combined'));
 //app.engine('handlebars', handlebars());
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
 app.engine('hbs', engine({
   extname: '.hbs'
 }));
@@ -23,6 +27,10 @@ app.get('/news', (req, res) => {
 });
 app.get('/search', (req, res) => {
   res.render('search');
+});
+app.post('/search', (req, res) => {
+  console.log(req.body)
+  res.send('');
 });
 app.listen(3000);
 {
